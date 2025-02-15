@@ -36,5 +36,51 @@ function getHumanChoice() {
     return choice;
 }
 
-console.log(getComputerChoice());
-console.log(getHumanChoice());
+// Initializing score variables
+let humanScore = 0, computerScore = 0;
+
+// A function that simulate a single round
+function playRound(humanChoice, computerChoice) {
+    // Converting the humanChoice variable to lowercase
+    humanChoice.toLowerCase();
+
+    // Tie Case: Rock vs. Rock || Paper vs. Paper || Scissor vs. Scissor
+    if (humanChoice === computerChoice) {
+        return "It's a tie!";
+    }
+
+    // Win 1: Rock vs. Scissor
+    else if (humanChoice === "rock" && computerChoice === "scissors") {
+        return "You win!";
+    }
+
+    // Win 2: Paper vs. Rock
+    else if (humanChoice === "rock" && computerChoice === "scissors") {
+        return "You win!";
+    }
+
+    // Win 3: Scissor vs. Paper
+    else if (humanChoice === "scissors" && computerChoice === "paper") {
+        return "You win!";
+    }
+
+    // Otherwise you lose
+    else {
+        return "You lose";
+    }
+}
+
+// Initializing variables for both the human and computer's choice
+let humanSelection = getHumanChoice();
+let computerSelection = getComputerChoice();
+
+// Calling the playRound Function which will return a string that will be printed to the screen
+console.log(playRound(humanSelection, computerSelection));
+
+
+
+// There needs to be a check that the player correctly inputs rock, paper or scissors
+// The program adjust for case-sensite cases. I.e., "Rock" will be read as "rock"
+// However, the current program assumes an incorrect input results in a loss
+// A graphical interfac that allows for the user to select rock, paper or scissors seems like
+// a fun option for the adjustment of this case.
