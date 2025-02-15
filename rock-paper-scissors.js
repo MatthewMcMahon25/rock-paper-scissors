@@ -8,7 +8,7 @@ function getComputerChoice() {
     let choice;
 
     // Creates a random number: 0 (Rock), 1 (Paper) or 2 (Scissors)
-    randomNum = getRandomNumber(3);
+    let randomNum = getRandomNumber(3);
 
     // If the number equals 0, the computer's choice is Rock
     if (randomNum === 0) {
@@ -39,44 +39,46 @@ function getHumanChoice() {
 // A function that simulate a single round
 function playRound(humanChoice, computerChoice) {
     // Converting the humanChoice variable to lowercase
-    humanChoice.toLowerCase();
+    humanChoice = humanChoice.toLowerCase();
 
     // Tie Case: Rock vs. Rock || Paper vs. Paper || Scissor vs. Scissor
     if (humanChoice === computerChoice) {
-        return "It's a tie!";
+        return 0;
     }
 
     // Win 1: Rock vs. Scissor
     else if (humanChoice === "rock" && computerChoice === "scissors") {
-        return "You win!";
+        return 1;
     }
 
     // Win 2: Paper vs. Rock
-    else if (humanChoice === "rock" && computerChoice === "scissors") {
-        return "You win!";
+    else if (humanChoice === "paper" && computerChoice === "rock") {
+        return 1;
     }
 
     // Win 3: Scissor vs. Paper
     else if (humanChoice === "scissors" && computerChoice === "paper") {
-        return "You win!";
+        return 1;
     }
 
     // Otherwise you lose
     else {
-        return "You lose";
+        return 2;
     }
 }
 
-// Update the score function
-function updateScore(result, humanScore, computerScore) {
-    // if human wins
-    if (result === "You win!") {
-        return humanScore + 1;
+// Creating the getWinner function which finds the winner of the game
+function getWinner(humanScore, computerScore) {
+    if (humanScore > computerScore) {
+        console.log("The game is over! Congratulations, you won!");
     }
 
-    // if computer wins
-    else if (result === "You lose") {
-        return computerScore + 1;
+    else if (humanScore < computerScore) {
+        console.log("The game is over... and I'm sorry, but you've lost the game.")
+    }
+
+    else {
+        console.log("The game ends and it's a tie!")
     }
 }
 
@@ -98,14 +100,29 @@ function playGame() {
 
         //Play the round by calling the playRound function and print the result
         let result = (playRound(humanSelection, computerSelection));
-        console.log(result);
 
         //Update the score
-        humanScore = updateScore(result, humanScore, computerScore);
-        computerScore = updateScore(result, humanScore, computerScore);
-        console.log(humanScore);
-        console.log(computerScore);
+        if (result === 0) {
+            console.log("It's a tie!")
+            console.log(humanScore);
+            console.log(computerScore);
+        } else if (result === 1) {
+            humanScore++;
+            console.log("You win!");
+            console.log(humanScore);
+            console.log(computerScore);
+        } else if (result === 2) {
+            computerScore++;
+            console.log("You lose!");
+            console.log(humanScore);
+            console.log(computerScore);
+        }
+
+        // Update Counter
+        roundCounter++;
     }
+    // prints the winner of the game
+    getWinner(humanScore, computerScore);
 }
 
 playGame();
