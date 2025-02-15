@@ -1,8 +1,6 @@
-console.log("Hello World");
-
-// Gets a random number 0, 1 or 2
-function getRandomNumber() {
-    return Math.floor(Math.random() * 3);
+// Gets a random number based on a "max" input
+function getRandomNumber(max) {
+    return Math.floor(Math.random() * max);
 }
 
 // Gets the computers choice and returns either Rock, Paper or Scissors
@@ -10,26 +8,33 @@ function getComputerChoice() {
     let choice;
 
     // Creates a random number: 0 (Rock), 1 (Paper) or 2 (Scissors)
-    randomNum = getRandomNumber();
-    console.log(randomNum);
+    randomNum = getRandomNumber(3);
 
     // If the number equals 0, the computer's choice is Rock
     if (randomNum === 0) {
-        choice = "Rock";
+        choice = "rock";
     }
     // If the number equals 1, the computer's choice is Paper
       else if (randomNum === 1) {
-        choice = "Paper";
+        choice = "paper";
     }
 
     // Else the number equals 2, the computer's choice is Scissors
       else {
-        choice = "Scissors";
+        choice = "scissors";
       }
 
     // Returns the computer's choice
-    console.log(choice);
     return choice;
 }
 
-getComputerChoice();
+function getHumanChoice() {
+    // Prompt user for input
+    let choice = prompt("rock, paper or scissors? ");   
+
+    // Return human's choice
+    return choice;
+}
+
+console.log(getComputerChoice());
+console.log(getHumanChoice());
