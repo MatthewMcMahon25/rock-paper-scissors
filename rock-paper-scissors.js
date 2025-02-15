@@ -36,9 +36,6 @@ function getHumanChoice() {
     return choice;
 }
 
-// Initializing score variables
-let humanScore = 0, computerScore = 0;
-
 // A function that simulate a single round
 function playRound(humanChoice, computerChoice) {
     // Converting the humanChoice variable to lowercase
@@ -70,14 +67,48 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-// Initializing variables for both the human and computer's choice
-let humanSelection = getHumanChoice();
-let computerSelection = getComputerChoice();
+// Update the score function
+function updateScore(result, humanScore, computerScore) {
+    // if human wins
+    if (result === "You win!") {
+        return humanScore + 1;
+    }
 
-// Calling the playRound Function which will return a string that will be printed to the screen
-console.log(playRound(humanSelection, computerSelection));
+    // if computer wins
+    else if (result === "You lose") {
+        return computerScore + 1;
+    }
+}
 
+// Creating a function called playGame
+function playGame() {
+    // Initializing round counter
+    let roundCounter = 0;
 
+    // Initializing score variables
+    let humanScore = 0, computerScore = 0;
+
+    // Creating a loop that lasts 5 rounds
+    while (roundCounter < 5){
+        // Get the human choice
+        let humanSelection = getHumanChoice();
+
+        // Get the computer choice
+        let computerSelection = getComputerChoice();
+
+        //Play the round by calling the playRound function and print the result
+        let result = (playRound(humanSelection, computerSelection));
+        console.log(result);
+
+        //Update the score
+        humanScore = updateScore(result, humanScore, computerScore);
+        computerScore = updateScore(result, humanScore, computerScore);
+        console.log(humanScore);
+        console.log(computerScore);
+    }
+}
+
+playGame();
 
 // There needs to be a check that the player correctly inputs rock, paper or scissors
 // The program adjust for case-sensite cases. I.e., "Rock" will be read as "rock"
