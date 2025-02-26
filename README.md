@@ -1,6 +1,4 @@
-# Rock Paper Scissors
-
-## 🪨📄✂️ Rock Paper Scissors Game (JavaScript)
+# 🪨📄✂️ Rock Paper Scissors Game (JavaScript)
 
 This is a simple **Rock Paper Scissors** game built using JavaScript, where the player competes against the computer in a **best-of-5 match**. The computer randomly selects "rock," "paper," or "scissors," and the player inputs their choice (case-insensitive). The game keeps track of the score and announces the winner at the end.
 
@@ -17,7 +15,3 @@ This is a simple **Rock Paper Scissors** game built using JavaScript, where the 
 4. After 5 rounds, the final winner is determined.
 
 Happy playing! 🎉  
-
----
-
-Let me know if you want any tweaks! 🚀
