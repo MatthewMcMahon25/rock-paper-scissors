@@ -14,7 +14,7 @@ This is a **Rock Paper Scissors** game built using JavaScript with an interactiv
 ---
 
 ## **🚀 How to Play:**
-1. **Open the `rock-paper-scissors.html` file** in a browser.
+1. **Open the `index.html` file** in a browser.
 2. **Click** "Rock," "Paper," or "Scissors" to play.
 3. The **game announces each round's result** and updates the score.
 4. **First to 5 points wins!**  
@@ -24,7 +24,7 @@ This is a **Rock Paper Scissors** game built using JavaScript with an interactiv
 ---
 
 ## **📂 Files in the Project**
-- `rock-paper-scissors.html` → The webpage structure.
+- `index.html` → The webpage structure.
 - `rock-paper-scissors.js` → The JavaScript game logic and UI interactions.
 - `styles.css` → (Optional) Can be used for additional styling.
 
